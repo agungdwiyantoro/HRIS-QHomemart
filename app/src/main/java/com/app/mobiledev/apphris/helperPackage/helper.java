@@ -42,7 +42,7 @@ import com.app.mobiledev.apphris.sesion.SessionManager;
 import com.app.mobiledev.apphris.update_layout;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.firebase.iid.FirebaseInstanceId;
+//import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -690,10 +690,10 @@ public class helper extends AsyncTask {
         // to get token new FCM version
         String token="";
         try{
-            token = FirebaseInstanceId.getInstance().getToken();
-            Log.d("TAG_FCM_TOKEN", "onComplete: "+token);
-            String id=FirebaseInstanceId.getInstance().getId();
-         //   Log.d("TAG_FCM_TOKEN_ID", "onComplete: "+FirebaseMessaging.getInstance().subscribeToTopic(topics));
+          //  token = FirebaseInstanceId.getInstance().getToken();
+          //  Log.d("TAG_FCM_TOKEN", "onComplete: "+token);
+          //  String id=FirebaseInstanceId.getInstance().getId();
+            //  Log.d("TAG_FCM_TOKEN_ID", "onComplete: "+FirebaseMessaging.getInstance().subscribeToTopic(topics));
 
         } catch (Exception e){
             Log.d("TAG_FCM_TOKEN_FAILED", "onComplete: "+e);

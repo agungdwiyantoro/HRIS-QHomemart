@@ -16,14 +16,14 @@ import android.util.Log;
 
 import com.app.mobiledev.apphris.R;
 import com.app.mobiledev.apphris.sesion.SessionManager;
-import com.google.firebase.messaging.FirebaseMessagingService;
-import com.google.firebase.messaging.RemoteMessage;
+//import com.google.firebase.messaging.FirebaseMessagingService;
+//import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Objects;
 
-public class MyFCMService extends FirebaseMessagingService {
+public class MyFCMService /*extends FirebaseMessagingService*/ {
 
-
+/*
     @Override
     public void onMessageSent(String s) {
         super.onMessageSent(s);
@@ -98,4 +98,6 @@ public class MyFCMService extends FirebaseMessagingService {
 
     }
 
+
+ */
 }

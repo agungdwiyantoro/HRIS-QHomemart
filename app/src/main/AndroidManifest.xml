@@ -25,6 +25,7 @@
     <uses-permission
         android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
         tools:ignore="ProtectedPermissions" />
+
     <uses-permission
         android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission"
@@ -89,6 +90,7 @@
             -->
 
         </activity>
+
         <activity
             android:name=".approve.approveCutiNew.DetailIzinCutiApprove"
             android:exported="false"
@@ -504,6 +506,38 @@
             </intent-filter>
             -->
         </activity>
+
+        <activity
+            android:name=".scanKTP.NewUpdateDataDiri"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".scanKTP.UpdateDataDiriStep2"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".scanKTP.UpdateDataDiriStep3"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".scanKTP.DetailUpdateData"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".scanKTP.CustomModelObjectDetectionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".scanKTP.MainActivitySplashScreen"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".scanKTP.ScanKTP"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

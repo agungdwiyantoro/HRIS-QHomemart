@@ -115,7 +115,7 @@ public class main_fragment extends AppCompatActivity implements BottomNavigation
         mAppUpdateManager.registerListener(installStateUpdatedListener);
         sessionmanager = new SessionManager(main_fragment.this);
         //call FCM configuration
-        tokenFcm = helper.ConfigFCM();
+        tokenFcm = login.token;
         Log.d("CEK_DEVICE_ID", "onCreate: " + helper.getDeviceId(main_fragment.this));
 
         //Untuk mendapatkan token

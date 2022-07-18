@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 
 import com.app.mobiledev.apphris.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class TestFCM extends AppCompatActivity {
 
@@ -27,8 +29,8 @@ public class TestFCM extends AppCompatActivity {
         //FirebaseMessaging.getInstance().subscribeToTopic("memo");
 
 
-
-        /*FirebaseMessaging.getInstance().getToken()
+/*
+        FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
                     public void onComplete(@NonNull Task<String> task) {
@@ -47,7 +49,9 @@ public class TestFCM extends AppCompatActivity {
                         Log.d("TAG_TOKEN0", msg);
                         Toast.makeText(TestFCM.this, msg, Toast.LENGTH_SHORT).show();
                     }
-                });*/
+                });
+
+ */
 
     }
 

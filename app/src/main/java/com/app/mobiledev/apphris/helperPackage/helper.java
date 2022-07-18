@@ -20,11 +20,17 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -42,6 +48,8 @@ import com.app.mobiledev.apphris.sesion.SessionManager;
 import com.app.mobiledev.apphris.update_layout;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.firebase.installations.FirebaseInstallations;
+import com.google.firebase.messaging.FirebaseMessaging;
 //import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONArray;
@@ -66,6 +74,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
+import java.util.concurrent.CompletableFuture;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -684,23 +693,17 @@ public class helper extends AsyncTask {
         return hrSize;
     }
 
-    public static String ConfigFCM(){
-        // to subscribe a topic from FCM
-       // FirebaseMessaging.getInstance().subscribeToTopic(topics);
-        // to get token new FCM version
-        String token="";
-        try{
-          //  token = FirebaseInstanceId.getInstance().getToken();
-          //  Log.d("TAG_FCM_TOKEN", "onComplete: "+token);
-          //  String id=FirebaseInstanceId.getInstance().getId();
-            //  Log.d("TAG_FCM_TOKEN_ID", "onComplete: "+FirebaseMessaging.getInstance().subscribeToTopic(topics));
+    public static Task<String> ConfigFCM(){
 
-        } catch (Exception e){
-            Log.d("TAG_FCM_TOKEN_FAILED", "onComplete: "+e);
-        }
-        return  token;
+        return FirebaseMessaging.getInstance().getToken()
+                .addOnSuccessListener(token -> {
+                    if (!TextUtils.isEmpty(token)) {
+                        Log.d(TAG, "token successfully retrieved : " + token);
+                    } else{
+                        Log.w(TAG, "token should not be null...");
+                    }
+                });
     }
-
 
     public static void getTokenHris( final Context mctx,String bariier) {
         AndroidNetworking.post(api.URL_API_TOKEN_HRIS)

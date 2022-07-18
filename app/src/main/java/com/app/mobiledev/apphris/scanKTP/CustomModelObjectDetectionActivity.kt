@@ -42,6 +42,7 @@ import java.io.IOException
 import java.util.*
 
 import android.graphics.BitmapFactory
+
 import com.app.mobiledev.apphris.R
 import com.app.mobiledev.apphris.scanKTP.camera.CameraSource
 import com.app.mobiledev.apphris.scanKTP.camera.CameraSourcePreview
@@ -301,23 +302,23 @@ class CustomModelObjectDetectionActivity : AppCompatActivity(), OnClickListener 
                     val product = searchedObject.productList[0]
                     objectThumbnailForBottomSheet1 = BitmapFactory.decodeFile(product.imageUrl)
 
-                    Log.d(TAG, "PLODUK " + product)
-                    val toShowData = Intent(this@CustomModelObjectDetectionActivity, NewUpdateDataDiri::class.java)
-                    toShowData.putExtra("IDData", product)
-                    this@CustomModelObjectDetectionActivity.startActivity(toShowData)
+                  //  Log.d(TAG, "PLODUK " + product)
+                  //  val toShowData = Intent(this@CustomModelObjectDetectionActivity, NewUpdateDataDiri::class.java)
+                   // toShowData.putExtra("IDData", product)
+                   // this@CustomModelObjectDetectionActivity.startActivity(toShowData)
 
                 } else {
                     objectThumbnailForBottomSheet1 = null
                 }
 
-/*
+
                 bottomSheetTitleView?.text = getString(R.string.buttom_sheet_custom_model_title)
                 productRecyclerView?.adapter = ProductAdapter(searchedObject.productList)
                 slidingSheetUpFromHiddenState = true
                 bottomSheetBehavior?.peekHeight =
                     preview?.height?.div(2) ?: BottomSheetBehavior.PEEK_HEIGHT_AUTO
                 bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
- */
+
             })
         }
     }

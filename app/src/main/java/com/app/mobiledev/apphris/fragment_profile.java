@@ -32,6 +32,8 @@ import com.app.mobiledev.apphris.profile.PerjanjianKerja.PerjanjianKerja;
 import com.app.mobiledev.apphris.profile.UbahFoto;
 import com.app.mobiledev.apphris.profile.UbahPass;
 import com.app.mobiledev.apphris.profile.UpdateDataDiri;
+import com.app.mobiledev.apphris.scanKTP.NewUpdateDataDiri;
+import com.app.mobiledev.apphris.scanKTP.ScanKTP;
 import com.app.mobiledev.apphris.sesion.SessionManager;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -148,7 +150,7 @@ public class fragment_profile extends Fragment {
         cvUpdateDataDiri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), UpdateDataDiri.class);
+                Intent intent = new Intent(getActivity(), ScanKTP.class);
                 startActivity(intent);
             }
         });

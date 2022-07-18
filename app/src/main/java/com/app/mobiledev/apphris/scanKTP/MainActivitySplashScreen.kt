@@ -26,13 +26,13 @@ import com.app.mobiledev.apphris.R
 
 
 /** Entry activity to select the detection mode.  */
-class MainActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsResultCallback{
+class MainActivitySplashScreen : AppCompatActivity(), ActivityCompat.OnRequestPermissionsResultCallback{
 
     override fun onCreate(bundle: Bundle?) {
         super.onCreate(bundle)
         actionBar?.hide()
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
-        setContentView(R.layout.activity_splash_screen)
+        setContentView(R.layout.activity_scan_splash_screen)
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
     }
 
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsRes
             } catch (e: InterruptedException) {
                 // do nothing
             } finally {
-                this@MainActivity.finish()
+                this@MainActivitySplashScreen.finish()
             }
         }
         thread.start()

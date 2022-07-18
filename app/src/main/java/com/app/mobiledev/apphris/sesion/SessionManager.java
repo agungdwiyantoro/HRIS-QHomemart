@@ -4,10 +4,12 @@ package com.app.mobiledev.apphris.sesion;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.app.mobiledev.apphris.login;
 import com.app.mobiledev.apphris.main_fragment;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.HashMap;
 
@@ -17,6 +19,7 @@ public class SessionManager {
     public SharedPreferences.Editor editor;
     public Context context;
     int PRIVATE_MODE = 0;
+    private final String TAG = "SessionManager";
 
     public static final String PREF_NAME = "LOGIN";
     public static final String LOGIN = "IS_LOGIN";
@@ -236,6 +239,26 @@ public class SessionManager {
         }
 
     }
+
+    public  String ConfigFCM(){
+        // to subscribe a topic from FCM
+        // FirebaseMessaging.getInstance().subscribeToTopic(topics);
+        // to get token new FCM version
+
+        return FirebaseMessaging.getInstance().getToken()
+                .addOnSuccessListener(token -> {
+                    if (!TextUtils.isEmpty(token)) {
+                        Log.d(TAG, "token successfully retrieved : " + token);
+                    } else{
+                        Log.w(TAG, "token should not be null...");
+                    }
+                })
+                .addOnCompleteListener(task -> {
+                    Log.v(TAG, "This is the token : " + task.getResult());
+                }).getResult();
+    }
+
+
 
     public HashMap<String, String> getUserDetail(){
         HashMap<String, String> user = new HashMap<>();

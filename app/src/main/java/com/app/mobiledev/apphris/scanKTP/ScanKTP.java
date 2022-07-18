@@ -18,7 +18,7 @@ public class ScanKTP extends AppCompatActivity {
         setTitle(R.string.update_data_diri);
         Button mulaiScanning = findViewById(R.id.bt_scan);
         mulaiScanning.setOnClickListener(v -> {
-           Intent scanID = new Intent(ScanKTP.this, MainActivity.class);
+           Intent scanID = new Intent(ScanKTP.this, MainActivitySplashScreen.class);
            startActivity(scanID);
         });
     }

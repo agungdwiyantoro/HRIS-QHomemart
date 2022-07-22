@@ -108,6 +108,7 @@ public class login extends AppCompatActivity {
         });
 
 
+        Log.d(TAG, "OINK OINK BABI");
 
         helper.ConfigFCM().addOnCompleteListener(task -> token = task.getResult());
 

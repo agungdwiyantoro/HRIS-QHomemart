@@ -7,7 +7,12 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,6 +42,12 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.app.mobiledev.apphris.api.api;
 import com.app.mobiledev.apphris.helperPackage.helper;
 import com.app.mobiledev.apphris.sesion.SessionManager;
+import com.google.common.util.concurrent.FutureCallback;
+import com.google.common.util.concurrent.Futures;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.ListeningExecutorService;
+import com.google.common.util.concurrent.MoreExecutors;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,6 +56,10 @@ import org.json.JSONObject;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -53,7 +68,7 @@ public class login extends AppCompatActivity {
     EditText txtIDUser, txtPassword, etDialogNik;
     TextView lupa_password;
     Button btnLogin;
-    String token;
+    public static String token;
     String id_user, password;
     private CheckBox checkBox;
     SessionManager sessionManager;
@@ -65,6 +80,7 @@ public class login extends AppCompatActivity {
     private CardView cvCancelDialog, cvSubmitDialog;
     private TextInputLayout tilDialogNik;
 
+    private final String TAG = "login.java";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,9 +107,10 @@ public class login extends AppCompatActivity {
             }
         });
 
-        token = helper.ConfigFCM();
 
-        //call FCM configuration
+        Log.d(TAG, "OINK OINK BABI");
+
+        helper.ConfigFCM().addOnCompleteListener(task -> token = task.getResult());
 
 
         lupa_password.setOnClickListener(new View.OnClickListener() {
@@ -138,14 +155,17 @@ public class login extends AppCompatActivity {
                     validIDUser.setErrorEnabled(false);
                     validPassword.setErrorEnabled(false);
 
-                    if (token.isEmpty() || token == null || token.equals("")) {
-                        helper.showMsg(login.this, "Peringatan", "Login Gagal, silakan coba beberapa saat lagi", helper.WARNING_TYPE);
-                    } else {
-                        auth_user(id_user, password);
+
+                        Log.d("login.java", "token login is " + token);
+                        if (token.isEmpty() || token == null || token.equals("")) {
+                            helper.showMsg(login.this, "Peringatan", "Login Gagal, silakan coba beberapa saat lagi", helper.WARNING_TYPE);
+                        } else {
+                            auth_user(id_user, password);
+                        }
                     }
 
                 }
-            }
+
         });
         getVersi();
     }
@@ -262,12 +282,9 @@ public class login extends AppCompatActivity {
                 .setContentText("Yakin keluar aplikasi?")
                 .setConfirmText("Ya, keluar")
                 .setCancelText("Tidak")
-                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                    @Override
-                    public void onClick(SweetAlertDialog sweetAlertDialog) {
-                        finish();
-                        moveTaskToBack(true);
-                    }
+                .setConfirmClickListener(sweetAlertDialog -> {
+                    finish();
+                    moveTaskToBack(true);
                 }).show();
     }
 

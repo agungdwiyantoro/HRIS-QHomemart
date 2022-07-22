@@ -4,6 +4,33 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../Library/Android/sdk/platforms/android-30/data/res/layout/simple_spinner_dropdown_item.xml" value="0.30277777777777776" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout-v21/activity_splash_screen.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_detail_update_data.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_live_barcode.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_live_object.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_new_update_data_diri.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_profil.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_profil_new.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_scan_ktp.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_settings.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_show_data.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_ssan_splash_screen.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_static_object.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_test_fcm.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_update_data_diri_step2.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/activity_update_data_diri_step3.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/barcode_bottom_sheet.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/barcode_field.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/camera_preview_overlay.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/detection_mode_item.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/product_bottom_sheet.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/product_item.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/products_preview_card.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/texture_view.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/top_action_bar_in_live_camera.xml" value="0.1" />
+        <entry key="..\:/HRIS-QHomemart/app/src/main/res/layout/top_action_bar_in_static_image.xml" value="0.1" />
         <entry key="..\:/github/hris/appHris/app/src/main/res/drawable/bg_input.xml" value="0.20989583333333334" />
         <entry key="..\:/github/hris/appHris/app/src/main/res/drawable/bg_input_rounded.xml" value="0.20989583333333334" />
         <entry key="..\:/github/hris/appHris/app/src/main/res/drawable/bg_profile.xml" value="0.20989583333333334" />

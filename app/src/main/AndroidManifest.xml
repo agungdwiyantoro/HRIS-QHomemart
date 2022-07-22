@@ -19,9 +19,13 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission
         android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
         tools:ignore="ProtectedPermissions" />
+
     <uses-permission
         android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission"
@@ -39,6 +43,10 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         tools:replace="android:icon">
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <activity
             android:name=".approve.approveDinasMt.dinas.DetailIzinDinasApprove"
@@ -82,6 +90,7 @@
             -->
 
         </activity>
+
         <activity
             android:name=".approve.approveCutiNew.DetailIzinCutiApprove"
             android:exported="false"
@@ -221,14 +230,14 @@
             -->
         </activity>
 
+        <!--
         <service
             android:name=".notifikasi.MyFCMService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </service>
-
+        </service>-->
         <activity android:name=".profile.alamat.AlamatIndonesia" />
         <!--
 <intent-filter>
@@ -497,6 +506,38 @@
             </intent-filter>
             -->
         </activity>
+
+        <activity
+            android:name=".scanKTP.NewUpdateDataDiri"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".scanKTP.UpdateDataDiriStep2"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".scanKTP.UpdateDataDiriStep3"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".scanKTP.DetailUpdateData"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".scanKTP.CustomModelObjectDetectionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".scanKTP.MainActivitySplashScreen"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".scanKTP.ScanKTP"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

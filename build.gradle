@@ -3,24 +3,77 @@
 buildscript {
     
     repositories {
+        mavenLocal()
         google()
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.1'
         classpath 'com.google.gms:google-services:4.3.2'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
+
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
+plugins {
+    id 'com.github.ben-manes.versions' version '0.36.0'
+}
+
 allprojects {
     repositories {
         google()
         jcenter()
+        mavenLocal()
         maven { url "https://jitpack.io" }
     }
+}
+
+// See: https://github.com/ben-manes/gradle-versions-plugin
+dependencyUpdates.resolutionStrategy = {
+    componentSelection { rules ->
+        rules.all { selection ->
+            boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm'].any { qualifier ->
+                selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+            }
+            if (rejected) {
+                selection.reject('Release candidate')
+            }
+        }
+    }
+}
+
+
+configurations {
+    ktlint
+}
+
+dependencies {
+    ktlint "com.github.shyiko:ktlint:0.31.0"
+}
+
+task("ktlint", type: JavaExec, group: "verification") {
+    def outputDir = "${project.buildDir}/reports/ktlint/"
+    def inputFiles = project.fileTree(dir: "src", include: "**/*.kt")
+    def outputFile = "${outputDir}ktlint-checkstyle-report.xml"
+
+    // See:
+    // https://medium.com/@vanniktech/making-your-gradle-tasks-incremental-7f26e4ef09c3
+    inputs.files(inputFiles)
+    outputs.dir(outputDir)
+
+    description = "Check Kotlin code style."
+    classpath = configurations.ktlint
+    main = "com.github.shyiko.ktlint.Main"
+    args = [
+            "--format",
+            "--android",
+            "--reporter=plain",
+            "--reporter=checkstyle,output=${outputFile}",
+            "**/*.kt",
+    ]
 }
 
 task clean(type: Delete) {

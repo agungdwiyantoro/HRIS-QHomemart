@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".scanKTP.UpdateDataDiriStep2"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tv_kontak_pribadi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kontak_pribadi"
+        style="@style/TextViewHeaderStyle"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_no_hp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_hp"
+        android:layout_marginTop="10dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/tv_kontak_pribadi"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_no_hp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/EditTextStyle"
+        android:layout_marginTop="5dp"
+        android:inputType="number"
+        android:imeOptions="actionNext"
+
+        app:layout_constraintTop_toBottomOf="@+id/tv_no_hp" />
+
+    <TextView
+        android:id="@+id/tv_alamat_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alamat_email"
+        android:layout_marginTop="10dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/et_no_hp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_alamat_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/EditTextStyle"
+        android:layout_marginTop="5dp"
+        android:inputType="textEmailAddress"
+        android:imeOptions="actionDone"
+
+        app:layout_constraintTop_toBottomOf="@+id/tv_alamat_email" />
+
+    <Button
+        android:id="@+id/bt_kembali"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/kembali"
+        style="@style/ButtonStyleNegative"
+        android:layout_marginEnd="10dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_selanjutnya"/>
+
+    <Button
+        android:id="@+id/bt_selanjutnya"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/selanjutnya"
+        style="@style/ButtonStylePositive"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_kembali"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

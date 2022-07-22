@@ -11,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.provider.MediaStore;
+
 import com.google.android.material.textfield.TextInputLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -148,66 +149,49 @@ public class UpdateDataDiri extends AppCompatActivity {
         helper.verifyStoragePermissions(UpdateDataDiri.this);
         helper.disabledEditText(etAlamatNow);
 
-        imgAlamat1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(UpdateDataDiri.this, AlamatIndonesia.class);
-                startActivity(intent);
-                session.putStatusAlamat("ktp");
-            }
+        imgAlamat1.setOnClickListener(v -> {
+            Intent intent = new Intent(UpdateDataDiri.this, AlamatIndonesia.class);
+            startActivity(intent);
+            session.putStatusAlamat("ktp");
         });
 
-        imgAlamat2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(UpdateDataDiri.this, AlamatIndonesia.class);
-                startActivity(intent);
-                session.putStatusAlamat("now");
-            }
+        imgAlamat2.setOnClickListener(v -> {
+            Intent intent = new Intent(UpdateDataDiri.this, AlamatIndonesia.class);
+            startActivity(intent);
+            session.putStatusAlamat("now");
         });
 
-        tIlKeluarga.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(UpdateDataDiri.this, DataKeluarga.class);
-                startActivity(intent);
-            }
+        tIlKeluarga.setOnClickListener(v -> {
+            Intent intent = new Intent(UpdateDataDiri.this, DataKeluarga.class);
+            startActivity(intent);
         });
 
 
 
-        btnUpdateData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                reset_validation();
-                nama=etNama.getText().toString();
-                alamat_ktp=etAlamatKtp.getText().toString();
-                ktp=etKtp.getText().toString();
-                tgl_lahir=etTgl_lahir.getText().toString();
-                tgl_masuk_kerja=etMasukKerja.getText().toString();
-                alamat_now=etAlamatNow.getText().toString();
-                no_hp=etNoHp.getText().toString();
-                email=etEmail.getText().toString();
-                npwp=etNpwp.getText().toString();
-                tempat_lahir=etTempatLahir.getText().toString();
-                if(is_valid()){
-                    mProgressDialog.show();
-                    insert_data_kk(kyano,nik,jbano,tempat_lahir,tgl_lahir,tgl_masuk_kerja,alamat_ktp,alamat_now,no_hp,email,npwp,nama,compressedImage_ktp,compressedImage_kk,compressedImage_npwp);
+        btnUpdateData.setOnClickListener(view -> {
+            reset_validation();
+            nama=etNama.getText().toString();
+            alamat_ktp=etAlamatKtp.getText().toString();
+            ktp=etKtp.getText().toString();
+            tgl_lahir=etTgl_lahir.getText().toString();
+            tgl_masuk_kerja=etMasukKerja.getText().toString();
+            alamat_now=etAlamatNow.getText().toString();
+            no_hp=etNoHp.getText().toString();
+            email=etEmail.getText().toString();
+            npwp=etNpwp.getText().toString();
+            tempat_lahir=etTempatLahir.getText().toString();
+            if(is_valid()){
+                mProgressDialog.show();
+                insert_data_kk(kyano,nik,jbano,tempat_lahir,tgl_lahir,tgl_masuk_kerja,alamat_ktp,alamat_now,no_hp,email,npwp,nama,compressedImage_ktp,compressedImage_kk,compressedImage_npwp);
 
-                }else{
-                    mProgressDialog.dismiss();
-                }
-
+            }else{
+                mProgressDialog.dismiss();
             }
+
         });
 
 
-        btn_tgl_lahir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDateDialogTglLahir();
-            }
-        });
+        btn_tgl_lahir.setOnClickListener(view -> showDateDialogTglLahir());
         btn_tgl_masuk_kerja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -218,12 +202,16 @@ public class UpdateDataDiri extends AppCompatActivity {
         imgKtp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(intent, 1);
                 bool_imgKtp=true;
                 bool_imgKk=false;
                 bool_imgNpwp=false;
+                */
+
+
             }
         });
 
